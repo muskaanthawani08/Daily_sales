@@ -5,14 +5,14 @@ import logging
 import mysql.connector
 from dotenv import load_dotenv
 
-# 🧠 Load environment variables
+# Load environment variables
 load_dotenv()
 
-# 🌐 File paths
+# File paths
 FILE_PATH = os.getenv("FILE_PATH", r"C:\Users\Muskaan.Thawani\Desktop\Patient_Square\supermarket_sales.csv")
 CLEANED_PATH = os.getenv("CLEANED_PATH", r"C:\Users\Muskaan.Thawani\Desktop\Patient_Square\cleaned_sales.csv")
 
-# 📝 Logging setup
+# Logging setup
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 def download_data(**kwargs):
