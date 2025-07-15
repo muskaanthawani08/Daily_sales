@@ -73,15 +73,9 @@ success_notify = BashOperator(
     dag=dag
 )
 
-failure_notify = BashOperator(
-    task_id='failure_notification',
-    bash_command='echo "Sales pipeline encountered an error."',
-    trigger_rule='one_failed',
-    dag=dag
-)
 
 # Define dependencies
 start_pipeline >> download_task >> validate_task >> branch_task
 branch_task >> transform_task >> load_task >> success_notify
 branch_task >> skip_load >> success_notify
-[download_task, validate_task, transform_task, load_task] >> failure_notify
+
